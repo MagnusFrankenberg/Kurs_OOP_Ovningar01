@@ -58,25 +58,10 @@ public class Main {
             }
         }
 
-        //Registrera närvaro
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ange en Kurs: ");
-        String minKursNamn = sc.nextLine();
-        for (Kurs k : kurser) {
-            if (k.getKursNamn().equals(minKursNamn)) {
-                System.out.println(k.getSchema());
-                System.out.println("Ange ett Datum som ingår i kursen: ");
-                LocalDate datum = LocalDate.parse(sc.nextLine());
-                for (Kurstillfälle kt : kurstillfällen) {
-                    if (k.equals(kt.getKurs()) && datum.equals(kt.getDatum())) {
-                        System.out.println("Är student "+kt.getStudent().getNamn()+ " närvarande? (true or false)");
-                        Boolean närvaro = sc.nextBoolean();
-                        kt.setÄrNärvarande(närvaro);
-                    }
-                }
-            }
-        }
+        regNärvaro(kurser,kurstillfällen);
 
+
+        /*
 
         //Print studenter
         for (Student s : studenter) {
@@ -108,7 +93,7 @@ public class Main {
             }
             System.out.println("____________________");
         }
-
+*/
 
     }
 
@@ -123,6 +108,37 @@ public class Main {
         Collections.shuffle(lärareLista);
         return lärareLista.get(0);
     }
+
+    //Registrera närvaro och skriv ut närvarolista
+    public void regNärvaro(List<Kurs> kurser,List<Kurstillfälle> kurstillfällen) {
+        Scanner sc = new Scanner(System.in);
+        for (Kurs k : kurser)
+            System.out.println(k.getKursNamn());
+        System.out.println("__________________");
+        System.out.println("Ange en Kurs: ");
+        String minKursNamn = sc.nextLine();
+        for (Kurs k : kurser) {
+            if (k.getKursNamn().equals(minKursNamn)) {
+                System.out.println(k.getSchema());
+                System.out.println("Ange ett Datum som ingår i kursen: ");
+                LocalDate datum = LocalDate.parse(sc.nextLine());
+                for (Kurstillfälle kt : kurstillfällen) {
+                    if (k.equals(kt.getKurs()) && datum.equals(kt.getDatum())) {
+                        System.out.println("Är student " + kt.getStudent().getNamn() + " närvarande? (true or false)");
+                        Boolean närvaro = sc.nextBoolean();
+                        kt.setÄrNärvarande(närvaro);
+                    }
+                }
+                System.out.printf("Kurs: %s, Lärare: %s, Datum: %s\nNärvaro:\n",k.getKursNamn(),k.getLärare().getNamn(),datum);
+                for(Kurstillfälle kt:kurstillfällen){
+                    if(k.equals(kt.getKurs()) && datum.equals(kt.getDatum())){
+                        System.out.printf("%s -> Närvarande: %b\n",kt.getStudent().getNamn(),kt.getÄrNärvarande());
+                    }
+                }
+            }
+        }
+    }
+
 
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
