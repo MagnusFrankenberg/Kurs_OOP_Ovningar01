@@ -27,7 +27,7 @@ public class Main {
         lärare.add(new Lärare("Bosse", "Stora gatan 2", "790807"));
         lärare.add(new Lärare("Agnes", "Stora gatan 3", "650807"));
 
-        //Skapar upp x antal Kurser utan Studenter och Lärare
+        //Skapar upp x antal Kurser utan Studenter och Lärare med start och slut-datum.
         ArrayList<Kurs> kurser = new ArrayList<>();
 
         kurser.add(new Kurs("Biologi 1", "2022-08-01", "2022-08-30"));
@@ -37,7 +37,8 @@ public class Main {
         kurser.add(new Kurs("Filosofi 2", "2022-01-01", "2022-02-01"));
 
 
-        //Skapar upp lista med deltagande-objekt
+        //Skapar upp lista med deltagande-objekt (student & kurs)
+        //samt lägger till lärare till Kurs
         ArrayList<Deltagande> deltarLista = new ArrayList<>();
 
         for (int i = 0; i < kurser.size(); i++) {
@@ -49,7 +50,7 @@ public class Main {
             }
         }
 
-        //Skapa upp Kurstillfällen (Kurs, schema-datum,student)
+        //Skapar upp Kurstillfällen (Kurs, student & Datum)
         List<Kurstillfälle> kurstillfällen = new ArrayList<>();
 
         for (Deltagande d : deltarLista) {
@@ -58,6 +59,7 @@ public class Main {
             }
         }
 
+        //anropa metod för att registrera närvaro på en kurs och ett datum
         regNärvaro(kurser,kurstillfällen);
 
 

@@ -23,5 +23,5 @@ public abstract class Fordon {
         return vikt;
     }
 
-    abstract void printMe();
+    abstract public void printMe();
 }
