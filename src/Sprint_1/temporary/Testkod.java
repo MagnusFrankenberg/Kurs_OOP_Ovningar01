@@ -1,12 +1,12 @@
-package Sprint_1.Test;
+package Sprint_1.temporary;
 
 import java.time.*;
 import java.util.*;
 
 
-public class Test {
+public class Testkod {
 
-    public Test(){
+    public Testkod(){
 
         String s = "2014-05-01";
         String e = "2014-05-10";
