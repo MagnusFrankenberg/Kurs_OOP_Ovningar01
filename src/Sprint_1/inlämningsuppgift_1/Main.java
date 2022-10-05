@@ -8,6 +8,7 @@ public class Main {
 
         Gäster gäster = new Gäster();
 
+        //Programmets Huvudmeny med 4 val
         while (true) {
             String väljare = JOptionPane.showInputDialog("Vad vill du göra? (Ange siffra)\n" +
                     "1: Checka in\n" +
@@ -35,7 +36,7 @@ public class Main {
                             JOptionPane.showMessageDialog(null, "Hittade ingen växt med det namnet");
                             continue;
                         }
-                        JOptionPane.showMessageDialog(null, växt.printInstruktion());
+                        JOptionPane.showMessageDialog(null, växt.bevattningsInstruktion());
                     }
                     break;
                 case "4":

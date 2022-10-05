@@ -3,10 +3,19 @@ package Sprint_1.inlämningsuppgift_1;
 import javax.swing.*;
 import java.util.*;
 
+//Denna klass innehåller en List "nuvarandeGäster" med de Växt-objekt som för närvarande är incheckade på hotellet.
+//Klassen innehåller 4 metoder:
+// 1. hittaGäst -> som returnerar ett Växtobjekt baserat på växtens namn
+// 2. checkIn -> tar in nödvändig info om en ny gäst (Namn, längd, typ), kontrollerar för ev fel i input,
+//...skapar sedan upp nytt objekt och lägger i listan "nuvarandeGäster".
+// 3. checkOut -> tar in namnet på växt som ska checkas ut, och raderar växten från listan "nuvarandeGäster".
+// 4. printGäster -> returnerar en String med incheckade växter (namn + typ).
+
 public class Gäster {
 
     private List<Växt> nuvarandeGäster = new ArrayList<>();
 
+    //Metod för att returnera ett incheckat Växtobjekt baserat på växtens namn
     public Växt hittaGäst(String namn) {
         Växt växt = null;
         for (int i = 0; i < nuvarandeGäster.size(); i++) {
@@ -16,8 +25,12 @@ public class Gäster {
         return växt;
     }
 
+    //Metod för att checka in nya växtobjekt
+    //Tar in nödvändig info via showInputDialog i 3 steg: namn, längd, typ.
+    //Kontrollerar indatans giltighet och skapar nya objekt som läggs till en ArrayList
     public void checkIn() {
 
+        //tar in namn:
         String namn;
         Boolean ärUpptaget = false;
         do {
@@ -32,6 +45,7 @@ public class Gäster {
             }
         } while (ärUpptaget);
 
+        //tar in längd:
         Boolean försökIgen = false;
         double längd = 0;
         do {
@@ -44,17 +58,15 @@ public class Gäster {
             }
         } while (försökIgen);
 
-
+        //tar in typ av växt:
         do {
             försökIgen = false;
-
             String input = JOptionPane.showInputDialog("Ange typ av växt (Ange siffra)\n" +
                     "1: Palm\n" +
                     "2: Köttätare\n" +
                     "3: Kaktus");
 
-
-
+            //skapar upp objekt av vald Typ och lägger till i List "nuvarandeGäster"
             switch (input) {
                 case "1":
                     nuvarandeGäster.add(new Palm(namn, längd));
@@ -72,6 +84,8 @@ public class Gäster {
         } while (försökIgen);
     }
 
+    //metod för att checka ut en växt
+    //letar efter angivet namn och tar bort Växt-objektet från List
     public void checkOut() {
         Boolean hittatGäst = false;
         String namn = JOptionPane.showInputDialog(printGäster() + "\nAnge namn på Växt som ska checkas ut");
@@ -88,6 +102,7 @@ public class Gäster {
         }
     }
 
+    //metod som returnerar en String med incheckade Gäster (namn & typ)
     public String printGäster() {
         String s = "Nuvarande gäster:\n";
         for (int i = 0; i < nuvarandeGäster.size(); i++) {

@@ -2,5 +2,6 @@ package Sprint_1.inlämningsuppgift_1;
 
 public interface Vätskeinstruktion {
 
-    String printInstruktion();
+    //Detta inteface innehåller nedan abstrakta metod som återger en String med en bevattningsinstruktion.
+    String bevattningsInstruktion();
 }

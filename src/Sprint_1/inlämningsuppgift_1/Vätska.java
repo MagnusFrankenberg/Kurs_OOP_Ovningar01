@@ -1,5 +1,6 @@
 package Sprint_1.inlämningsuppgift_1;
 
+//Enum med de tre förutbestämda vätskorna
 public enum Vätska {
 
     KRANVATTEN ("Kranvatten"),
