@@ -19,6 +19,7 @@ public class Main {
             if(väljare==null)
                 break;
 
+            //Anrop av metod baserat på val i huvudmenyn
             switch (väljare) {
                 case "1":
                     gäster.checkIn();
@@ -27,17 +28,7 @@ public class Main {
                     gäster.checkOut();
                     break;
                 case "3":
-                    while (true) {
-                        String namn = JOptionPane.showInputDialog(gäster.printGäster() + "\nVilken växt ska få vatten? (Ange namn)");
-                        if (namn == null)
-                            break;
-                        Växt växt = gäster.hittaGäst(namn);
-                        if (växt == null) {
-                            JOptionPane.showMessageDialog(null, "Hittade ingen växt med det namnet");
-                            continue;
-                        }
-                        JOptionPane.showMessageDialog(null, växt.bevattningsInstruktion());
-                    }
+                    vattna(gäster);
                     break;
                 case "4":
                     JOptionPane.showMessageDialog(null,gäster.printGäster());
@@ -47,6 +38,23 @@ public class Main {
 
 
             }
+        }
+    }
+
+    //metod vattna:
+    // Frågar efter ett namn, letar upp motsvarande Växtobjekt, och genererar bevattningsinstruktion
+    //polymorfism -> kommer köra den metod "bevattningsinstruktion" som ligger i motsvarande Växtobjekts klass.
+    public void vattna(Gäster gäster){
+        while (true) {
+            String namn = JOptionPane.showInputDialog(gäster.printGäster() + "\nVilken växt ska få vatten? (Ange namn)");
+            if (namn == null)
+                break;
+            Växt växt = gäster.hittaGäst(namn);
+            if (växt == null) {
+                JOptionPane.showMessageDialog(null, "Hittade ingen växt med det namnet");
+                continue;
+            }
+            JOptionPane.showMessageDialog(null, växt.bevattningsInstruktion());
         }
     }
         public static void main (String[]args){
