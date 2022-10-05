@@ -34,9 +34,10 @@ public abstract class Växt implements Vätskeinstruktion {
     //Denna metod kommer att ärvas av subklasserna
     //returnerar en String med bevattningsinstruktion
     public String bevattningsInstruktion() {
-        String s = String.format("%s är en %s.\nDen behöver %.02f liter av %s",
+        String s = String.format("%s  (%s  %.2fm.)\nSka vattnas med %.2f liter av %s",
                 getNamn(),
                 getClass().getSimpleName(),
+                getLängd(),
                 VätskeBehovPerDag(),
                 getVätska().substans);
         return s;

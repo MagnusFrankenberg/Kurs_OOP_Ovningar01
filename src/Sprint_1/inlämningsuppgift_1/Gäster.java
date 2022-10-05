@@ -106,10 +106,11 @@ public class Gäster {
     public String printGäster() {
         String s = "Nuvarande gäster:\n";
         for (int i = 0; i < nuvarandeGäster.size(); i++) {
-            s += String.format("%d. %s (%s)\n",
+            s += String.format("%d. %s (%s  %.2fm.)\n",
                     i + 1,
                     nuvarandeGäster.get(i).getNamn(),
-                    nuvarandeGäster.get(i).getClass().getSimpleName());
+                    nuvarandeGäster.get(i).getClass().getSimpleName(),
+                    nuvarandeGäster.get(i).getLängd());
         }
         return s;
     }
