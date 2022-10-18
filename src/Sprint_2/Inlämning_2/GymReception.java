@@ -4,6 +4,7 @@ package Sprint_2.Inlämning_2;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -80,7 +81,8 @@ public class GymReception {
             while ((row1 = buf.readLine()) != null && (row2 = buf.readLine()) != null) {
                 lista.add(createOnePerson(row1, row2));
             }
-        } catch (Exception e) {
+        }catch (Exception e) {
+            System.out.println("Fel vid inläsning av data från fil. Kontrollera filen innan du fortsätter.\n");
             e.printStackTrace();
         }
         return lista;
