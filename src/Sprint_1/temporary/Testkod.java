@@ -8,6 +8,10 @@ public class Testkod {
 
     public Testkod(){
 
+
+
+
+        /*
         String s = "2014-05-01";
         String e = "2014-05-10";
         LocalDate start = LocalDate.parse(s);
@@ -17,6 +21,8 @@ public class Testkod {
             totalDates.add(start);
             start = start.plusDays(1);
         }
+        */
+
 
 
     }
