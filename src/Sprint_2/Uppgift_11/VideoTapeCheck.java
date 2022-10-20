@@ -45,7 +45,7 @@ public class VideoTapeCheck {
                 aTime = LocalTime.parse(input);
                 tryagain = false;
             } catch (Exception e) {
-                System.out.println("Otillåtet format på input (Format:\"tt:mm\")");
+                JOptionPane.showMessageDialog(null,"Otillåtet format på input");
             }
         }
         return aTime;
@@ -67,7 +67,7 @@ public class VideoTapeCheck {
                 aDuration = Duration.of(i, ChronoUnit.MINUTES);
                 tryagain = false;
             } catch (Exception e) {
-                System.out.println("Otillåtet format på input, försök igen");
+                JOptionPane.showMessageDialog(null,"Otillåtet format på input");
             }
         }
         return aDuration;
