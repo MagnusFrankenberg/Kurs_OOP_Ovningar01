@@ -81,7 +81,7 @@ public class GymReception {
             while ((row1 = buf.readLine()) != null && (row2 = buf.readLine()) != null) {
                 lista.add(createOnePerson(row1, row2));
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Fel vid inläsning av data från fil. Kontrollera filen innan du fortsätter.\n");
             e.printStackTrace();
         }
@@ -97,7 +97,6 @@ public class GymReception {
         } else {
             currentDate = LocalDate.now();
         }
-
         LocalDate dateOneYearAgo = currentDate.minusYears(1);
         LocalDate lastPaymentDate = p.getSenastBetaldAvgift();
 
@@ -117,8 +116,8 @@ public class GymReception {
                 foundperson = true;
                 if (annualPaymentValid(p, nowDateAsTest)) {
                     s = p.toString() + " är en nuvarande kund (giltig betalningsstatus).\n";
-                    if(pt.writeTrainingSessionToFile(p, nowDateAsTest))
-                        s+="Gymbesök Registrerat\n";
+                    if (pt.writeTrainingSessionToFile(p, nowDateAsTest))
+                        s += "Gymbesök Registrerat\n";
                 } else {
                     s = p.toString() + " är en före detta kund (ogiltig betalningsstatus).\n";
                 }

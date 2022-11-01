@@ -1,4 +1,4 @@
-package Sprint_2.Uppgift_6ab;
+package Sprint_3.Uppgift_3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,6 +8,7 @@ public class VäxelTillbaka {
 
     List<Integer> allaValörer = Arrays.asList(1000, 500, 200, 100, 50, 20, 10, 5, 2, 1);
     List<Integer> växelList;
+
 
 
 
@@ -38,15 +39,20 @@ public class VäxelTillbaka {
     }
 
 
-    public List<Integer> beräknaVäxelTillbaka(int totalVäxel) {
+    public List<Integer> beräknaVäxelTillbaka(int totalVäxel, boolean[] önskevalörer) {
         List<Integer> växelTillbaka = new ArrayList<>();
         int tempväxel = totalVäxel;
         int antal = 0;
         for (int i = 0; i < allaValörer.size(); i++) {
             int valör = allaValörer.get(i);
-            antal = getAntal(tempväxel, valör);
-            växelTillbaka.add(antal);
-            tempväxel = kvarAttväxla(tempväxel, valör);
+            if(önskevalörer[i]) {
+                antal = getAntal(tempväxel, valör);
+                växelTillbaka.add(antal);
+                tempväxel = kvarAttväxla(tempväxel, valör);
+            }else{
+                antal = 0;
+                växelTillbaka.add(antal);
+            }
         }
         return växelTillbaka;
     }
@@ -72,7 +78,7 @@ public class VäxelTillbaka {
             valör = allaValörer.get(i);
             antal= växellista.get(i);
             if(antal>0){
-                s += String.format("%s %d\n",getIntLapparKronor(valör),antal);
+                s += String.format("%s %d<br/>",getIntLapparKronor(valör),antal);
             }
         }
         return s;
