@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>Here are any comments to make</comment>
+    <entry key="framesizeWidth">200</entry>
+    <entry key="framesizeLength">200</entry>
+    <entry key="frameTitle">"Min SwingFrame"</entry>
+    <entry key="message">"Hej på dig! Hello!"</entry>
+</properties>

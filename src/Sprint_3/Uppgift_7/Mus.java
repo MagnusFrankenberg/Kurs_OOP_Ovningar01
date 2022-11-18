@@ -15,7 +15,7 @@ public class Mus extends JFrame {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            jb.setForeground(Color.RED);
+            jb.setForeground(Color.ORANGE);
             jb.revalidate();
             jl.setText("Här är musen");
         }

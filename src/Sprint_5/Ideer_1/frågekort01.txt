@@ -1,0 +1,3 @@
+KATEGORI, FRÅGA, SVARRÄTT, SVAR2, SVAR3, SVAR4
+Djur & Natur, Vilket djur är störst?, Elefant, Hare, Myra, Katt
+Musik & Kultur, Från vilket land kommer Adele?, Storbritannien, Frankrike, USA, Kanada
